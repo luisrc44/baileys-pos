@@ -306,7 +306,8 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
     <div class="ticket-gracias">Gracias por su visita ☕</div>
     <div class="modal-actions">
       <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
-      <button class="btn-descargar" onclick="descargarCSV()">Descargar CSV</button>
+      <button class="btn-descargar" onclick="descargarCSV()">⬇ CSV</button>
+      <button class="btn-descargar" onclick="descargarTicketImagen()">🖼 Imagen</button>
       <button class="btn-confirmar" onclick="confirmarCobro()">Confirmar cobro</button>
     </div>
   </div>
@@ -750,6 +751,118 @@ function showToast(msg) {
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// ── DESCARGAR TICKET COMO IMAGEN ──
+function descargarTicketImagen() {
+  if (!ticketData) return;
+  const d = ticketData;
+
+  const canvas = document.createElement('canvas');
+  const W = 400;
+  const lineH = 20;
+  const pad = 24;
+
+  // Calcular altura dinámica
+  let lines = 18;
+  d.orden.forEach(it => {
+    lines += 2;
+    const extras = [it.leche && it.leche !== 'Regular' ? 1:0, it.crema?1:0, it.consumo?1:0, it.notas?1:0].reduce((a,b)=>a+b,0);
+    lines += extras;
+  });
+  if (d.metodoPago === 'Tarjeta') lines += 1;
+  if (d.metodoPago === 'Efectivo') lines += 2;
+
+  canvas.width = W;
+  canvas.height = lines * lineH + pad * 4;
+  const ctx = canvas.getContext('2d');
+
+  // Fondo blanco
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  let y = pad;
+  const x = pad;
+  const right = W - pad;
+
+  function text(str, cx, cy, size=13, weight='normal', color='#1a1714', align='left') {
+    ctx.font = `${weight} ${size}px 'DM Sans', sans-serif`;
+    ctx.fillStyle = color;
+    ctx.textAlign = align;
+    ctx.fillText(str, cx, cy);
+  }
+  function mono(str, cx, cy, size=12, color='#1a1714', align='left') {
+    ctx.font = `${size}px 'DM Mono', monospace`;
+    ctx.fillStyle = color;
+    ctx.textAlign = align;
+    ctx.fillText(str, cx, cy);
+  }
+  function line(cy, dash=false) {
+    ctx.beginPath();
+    if (dash) ctx.setLineDash([4,4]); else ctx.setLineDash([]);
+    ctx.strokeStyle = '#d4cfc9';
+    ctx.lineWidth = 1;
+    ctx.moveTo(x, cy); ctx.lineTo(right, cy);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Encabezado
+  text("Bailey's Coffee Shop", W/2, y, 17, '500', '#1a1714', 'center'); y += lineH + 4;
+  mono(`Folio #${d.folio}`, W/2, y, 11, '#a09c98', 'center'); y += lineH;
+  mono(d.fecha, W/2, y, 11, '#a09c98', 'center'); y += lineH + 4;
+  line(y); y += lineH;
+
+  text(`Mesa: ${d.mesa}`, x, y, 12, 'normal', '#6b6460'); y += lineH;
+  text(`Cliente: ${d.nombre}`, x, y, 12, 'normal', '#6b6460'); y += lineH + 4;
+  line(y, true); y += lineH;
+
+  // Items
+  d.orden.forEach(it => {
+    text(`${it.producto} (${it.tamano})`, x, y, 13, '500'); 
+    mono(`$ ${it.subtotal}`, right, y, 13, '#1a1714', 'right'); y += lineH;
+    mono(`${it.cantidad} × $ ${it.precio}`, x + 10, y, 11, '#a09c98'); y += lineH - 4;
+    const extras = [
+      it.leche && it.leche !== 'Regular' ? `Leche ${it.leche}` : '',
+      it.crema ? `Crema: ${it.crema}` : '',
+      it.consumo || '',
+      it.notas || ''
+    ].filter(Boolean);
+    extras.forEach(ex => { text(ex, x + 10, y, 11, 'normal', '#a09c98'); y += lineH - 4; });
+    y += 4;
+  });
+
+  line(y, true); y += lineH;
+
+  // Totales
+  text('Subtotal', x, y, 12, 'normal', '#6b6460');
+  mono(`$ ${d.subtotal.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
+
+  if (d.comision > 0) {
+    text('Comisión (4.05%)', x, y, 12, 'normal', '#6b6460');
+    mono(`$ ${d.comision.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
+  }
+
+  text('Total', x, y, 15, '500');
+  mono(`$ ${d.total.toFixed(2)}`, right, y, 15, '#1a1714', 'right'); y += lineH + 4;
+  line(y); y += lineH;
+
+  text(`Método: ${d.metodoPago}`, x, y, 12, 'normal', '#6b6460'); y += lineH;
+  if (d.metodoPago === 'Efectivo') {
+    text('Recibido', x, y, 12, 'normal', '#6b6460');
+    mono(`$ ${d.monto.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
+    text('Cambio', x, y, 12, 'normal', '#6b6460');
+    mono(`$ ${d.cambio.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
+  }
+
+  y += lineH;
+  text('Gracias por su visita ☕', W/2, y, 12, 'normal', '#a09c98', 'center');
+
+  // Descargar
+  const a = document.createElement('a');
+  a.href = canvas.toDataURL('image/png');
+  a.download = `ticket_${d.folio}.png`;
+  a.click();
 }
 
 // ── INIT ──
