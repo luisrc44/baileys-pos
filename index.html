@@ -329,6 +329,7 @@ const CATALOGO = {
   "Frappés": {
     "Taro": {"Ch": 45, "M": 55, "G": 65},
     "Caramelo": {"Ch": 45, "M": 55, "G": 65},
+    "Cajeta": {"Ch": 45, "M": 55, "G": 65},
     "Matcha": {"Ch": 45, "M": 55, "G": 65},
     "Chai": {"Ch": 45, "M": 55, "G": 65},
     "Dirty Chai": {"Ch": 45, "M": 55, "G": 65},
@@ -341,12 +342,11 @@ const CATALOGO = {
     "Mazapán": {"Ch": 45, "M": 55, "G": 65},
     "Vainilla Francesa": {"Ch": 45, "M": 55, "G": 65},
     "Moka": {"Ch": 45, "M": 55, "G": 65},
-    "Moka Blanco": {"Ch": 45, "M": 55, "G": 65},
-    "Gansito": {"Ch": 45, "M": 55, "G": 65},
+    "Moka Blanco": {"Ch": 45, "M": 55, "G": 65},    
     "Rompope": {"Ch": 45, "M": 55, "G": 65},
     "Horchata": {"Ch": 45, "M": 55, "G": 65},
     "Lotus Biscoff": {"Ch": 45, "M": 55, "G": 65},
-    "Baileys": {"Ch": 50, "M": 60, "G": 70},
+    "Baileys": {"G": 70},
     "Nutella": {"Ch": 45, "M": 55, "G": 65}
   },
   "Iced Lattes": {
@@ -358,6 +358,7 @@ const CATALOGO = {
     "Iced Matcha Latte": {"G": 65},
     "Iced Taro Latte": {"G": 65},
     "Iced Chai Latte": {"G": 65},
+    "Iced Horchata-Chai Latte": {"G": 65},
     "Iced Crema Irlandesa Latte": {"G": 65},
     "Iced Tiramisú Latte": {"G": 65},
     "Iced Cajeta Latte": {"G": 65},
@@ -365,6 +366,8 @@ const CATALOGO = {
     "Iced Choco Milano Latte": {"G": 65},
     "Caramel Macchiato": {"G": 65},
     "Brown Sugar Shaken Espresso": {"G": 65},
+    "Iced Latte Otro": {"G": 65},
+    "Iced Latte (Diferente)": {"G": 65},
     "Strawberry Matcha": {"G": 70}
   },
   "Sodas Italianas": {
@@ -395,16 +398,18 @@ const CATALOGO = {
   "Crepas": {
     "Sencilla": {"Único": 50},
     "Fresa Crush": {"M": 55},
+    "Plátano Crush": {"M": 55},
     "Dulce Tentación": {"M": 55},
     "Zarzamora Cream": {"M": 55},
-    "Cajeta Tradicional": {"M": 55}
+    "Cajeta Tradicional": {"M": 55},
+    "Crepa Personalizada": {"M": 55}
   }
 };
 
 const SIN_LECHE = new Set(["Postres", "Sodas Italianas", "Crepas"]);
 const CON_CREMA = new Set(["Frappés"]);
 
-const MESAS = ["Barra", "Mesa 1", "Mesa 2", "Mesa 3", "Mesa 4", "Mesa 5", "Mesa 6"];
+const MESAS = ["Barra", "Mesa 1", "Mesa 2", "Mesa 3", "Mesa 4", "Mesa 5", "Mesa 6", "Mesa 7", "Mesa 8", "Mesa 9", "Mesa 10"];
 let ordenes = {};
 MESAS.forEach(m => ordenes[m] = []);
 
