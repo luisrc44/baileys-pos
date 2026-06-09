@@ -7,43 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --bg: #f7f5f2;
-  --surface: #ffffff;
-  --surface2: #f2f0ed;
-  --border: #e8e4df;
-  --border2: #d4cfc9;
-  --text: #1a1714;
-  --text2: #6b6460;
-  --text3: #a09c98;
-  --accent: #1a1714;
-  --accent-text: #ffffff;
-  --green: #166534;
-  --green-bg: #f0fdf4;
-  --green-border: #bbf7d0;
-  --amber: #92400e;
-  --amber-bg: #fffbeb;
-  --amber-border: #fde68a;
-  --red: #991b1b;
-  --red-bg: #fef2f2;
-  --radius: 10px;
-  --radius-sm: 6px;
-  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --bg: #f7f5f2; --surface: #ffffff; --surface2: #f2f0ed;
+  --border: #e8e4df; --border2: #d4cfc9;
+  --text: #1a1714; --text2: #6b6460; --text3: #a09c98;
+  --accent: #1a1714; --accent-text: #ffffff;
+  --green: #166534; --green-bg: #f0fdf4; --green-border: #bbf7d0;
+  --amber: #92400e; --amber-bg: #fffbeb; --amber-border: #fde68a;
+  --red: #991b1b; --red-bg: #fef2f2;
+  --radius: 10px; --radius-sm: 6px; --shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
-
 html, body { height: 100%; overflow: hidden; }
 body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; }
-
-/* Layout */
 .app { display: grid; grid-template-columns: 220px 1fr 300px; height: 100vh; }
-
-/* ── SIDEBAR ── */
 .sidebar { background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
 .sidebar-brand { padding: 18px 16px 14px; border-bottom: 1px solid var(--border); }
 .sidebar-brand h1 { font-size: 13px; font-weight: 500; letter-spacing: -0.01em; }
 .sidebar-brand p { font-size: 11px; color: var(--text3); margin-top: 2px; font-family: 'DM Mono', monospace; }
-
 .mesa-section { padding: 12px 10px; flex: 1; overflow-y: auto; }
 .section-label { font-size: 10px; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; padding: 0 6px; margin-bottom: 6px; }
 .mesa-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-radius: var(--radius-sm); border: none; background: transparent; cursor: pointer; font-family: inherit; font-size: 13px; color: var(--text2); margin-bottom: 1px; transition: all 0.12s; }
@@ -52,24 +32,18 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .mesa-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border2); flex-shrink: 0; }
 .mesa-dot.libre { background: #4ade80; }
 .mesa-dot.ocupada { background: #f87171; }
-
 .sidebar-totals { padding: 14px 16px; border-top: 1px solid var(--border); }
 .tot-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--text2); margin-bottom: 5px; }
 .tot-row.main { font-size: 15px; font-weight: 500; color: var(--text); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); margin-bottom: 0; }
 .btn-limpiar { width: 100%; margin-top: 10px; padding: 8px; border-radius: var(--radius-sm); border: 1px solid var(--border2); background: transparent; font-family: inherit; font-size: 12px; color: var(--text2); cursor: pointer; transition: all 0.12s; }
 .btn-limpiar:hover { background: var(--red-bg); color: var(--red); border-color: #fca5a5; }
-
-/* ── MAIN PANEL ── */
 .main { display: flex; flex-direction: column; overflow: hidden; }
-
 .main-header { padding: 16px 20px 0; }
 .main-header h2 { font-size: 11px; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
-
 .cat-tabs { display: flex; gap: 5px; flex-wrap: wrap; padding: 0 20px 14px; border-bottom: 1px solid var(--border); }
 .cat-tab { font-size: 12px; padding: 5px 13px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--text2); cursor: pointer; transition: all 0.12s; white-space: nowrap; font-family: inherit; }
 .cat-tab:hover { border-color: var(--border2); color: var(--text); }
 .cat-tab.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
-
 .product-area { flex: 1; overflow-y: auto; padding: 16px 20px; }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
 .product-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 12px; cursor: pointer; transition: all 0.12s; }
@@ -81,8 +55,6 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .size-pill { font-size: 10px; padding: 2px 7px; border-radius: 12px; background: var(--surface2); color: var(--text2); font-family: 'DM Mono', monospace; cursor: pointer; border: 1px solid transparent; transition: all 0.1s; }
 .size-pill:hover { border-color: var(--border2); }
 .size-pill.sel { background: var(--accent); color: var(--accent-text); }
-
-/* Config panel (leche, crema, notas) */
 .config-panel { margin: 0 20px 14px; padding: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); display: none; }
 .config-panel.visible { display: block; }
 .config-title { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
@@ -100,18 +72,14 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .qty-val { font-size: 14px; font-weight: 500; min-width: 20px; text-align: center; font-family: 'DM Mono', monospace; }
 .btn-agregar { flex: 1; padding: 8px 16px; border-radius: var(--radius-sm); border: none; background: var(--accent); color: var(--accent-text); font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; transition: opacity 0.12s; }
 .btn-agregar:hover { opacity: 0.85; }
-
-/* ── ORDER PANEL ── */
 .order-panel { background: var(--surface); border-left: 1px solid var(--border); display: flex; flex-direction: column; overflow: hidden; }
 .order-header { padding: 18px 16px 14px; border-bottom: 1px solid var(--border); }
 .order-header h3 { font-size: 13px; font-weight: 500; }
 .order-mesa-tag { font-size: 11px; color: var(--text3); margin-top: 2px; font-family: 'DM Mono', monospace; }
-
 .nombre-field { padding: 10px 12px; border-bottom: 1px solid var(--border); }
 .nombre-field input { width: 100%; padding: 6px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--surface2); font-family: inherit; font-size: 13px; color: var(--text); }
 .nombre-field input:focus { outline: none; border-color: var(--border2); }
 .nombre-field input::placeholder { color: var(--text3); }
-
 .order-list { flex: 1; overflow-y: auto; padding: 10px; }
 .empty-state { text-align: center; padding: 40px 20px; color: var(--text3); font-size: 13px; }
 .order-item { background: var(--surface2); border-radius: var(--radius-sm); padding: 10px; margin-bottom: 6px; display: grid; grid-template-columns: 1fr auto; gap: 8px; }
@@ -124,19 +92,15 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .oi-del:hover { color: var(--red); }
 .oi-price { font-size: 13px; font-weight: 500; font-family: 'DM Mono', monospace; text-align: right; }
 .oi-unit { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; text-align: right; }
-
-/* Checkout */
 .checkout { padding: 12px 14px; border-top: 1px solid var(--border); }
 .totals-mini { margin-bottom: 10px; }
 .tot-mini-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--text2); margin-bottom: 4px; font-family: 'DM Mono', monospace; }
 .tot-mini-row.big { font-size: 15px; font-weight: 500; color: var(--text); padding-top: 6px; border-top: 1px solid var(--border); }
-
 .pago-label { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
 .pago-btns { display: flex; gap: 5px; margin-bottom: 10px; }
 .pago-btn { flex: 1; font-size: 12px; padding: 6px 0; border-radius: var(--radius-sm); border: 1px solid var(--border); background: transparent; color: var(--text2); cursor: pointer; font-family: inherit; transition: all 0.12s; }
 .pago-btn:hover { border-color: var(--border2); }
 .pago-btn.active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
-
 .efectivo-fields { margin-bottom: 10px; }
 .ef-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
 .ef-label { font-size: 12px; color: var(--text2); min-width: 68px; }
@@ -145,14 +109,10 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .cambio-box { display: flex; justify-content: space-between; padding: 6px 8px; border-radius: var(--radius-sm); font-size: 13px; font-family: 'DM Mono', monospace; margin-bottom: 8px; }
 .cambio-box.ok { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
 .cambio-box.warn { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
-
 .tarjeta-info { font-size: 12px; color: var(--text2); background: var(--surface2); padding: 8px 10px; border-radius: var(--radius-sm); margin-bottom: 10px; font-family: 'DM Mono', monospace; }
-
 .btn-ticket { width: 100%; padding: 11px; border-radius: var(--radius-sm); border: none; background: var(--accent); color: var(--accent-text); font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: opacity 0.12s; }
 .btn-ticket:hover { opacity: 0.85; }
 .btn-ticket:disabled { opacity: 0.35; cursor: not-allowed; }
-
-/* Modal ticket */
 .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 100; }
 .modal-bg.hidden { display: none; }
 .modal { background: var(--surface); border-radius: var(--radius); padding: 28px; width: 380px; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
@@ -169,26 +129,19 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .ticket-item-price { display: flex; justify-content: space-between; font-size: 12px; color: var(--text2); font-family: 'DM Mono', monospace; margin-top: 2px; }
 .ticket-total { font-size: 16px; font-weight: 500; }
 .ticket-gracias { text-align: center; font-size: 12px; color: var(--text3); margin-top: 16px; }
-.modal-actions { display: flex; gap: 8px; margin-top: 20px; }
+.modal-actions { display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap; }
 .btn-confirmar { flex: 1; padding: 10px; border-radius: var(--radius-sm); border: none; background: var(--accent); color: var(--accent-text); font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; }
 .btn-cancelar { flex: 1; padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border2); background: transparent; font-family: inherit; font-size: 13px; color: var(--text2); cursor: pointer; }
 .btn-descargar { flex: 1; padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border2); background: transparent; font-family: inherit; font-size: 13px; color: var(--text2); cursor: pointer; }
-
-/* Toast */
 .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--accent-text); padding: 10px 20px; border-radius: 20px; font-size: 13px; opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 200; }
 .toast.show { opacity: 1; }
-
-/* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
 </style>
 </head>
 <body>
-
 <div class="app">
-
-  <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="sidebar-brand">
       <h1>Bailey's Coffee Shop</h1>
@@ -205,13 +158,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
     </div>
   </div>
 
-  <!-- MAIN -->
   <div class="main">
-    <div class="main-header">
-      <h2>Catálogo</h2>
-    </div>
+    <div class="main-header"><h2>Catálogo</h2></div>
     <div class="cat-tabs" id="cat-tabs"></div>
-
     <div class="config-panel" id="config-panel">
       <div class="config-title">Configurar producto</div>
       <div id="config-leche-row" class="config-row">
@@ -248,13 +197,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
         <button class="btn-agregar" onclick="agregarAlCarrito()">Agregar al carrito</button>
       </div>
     </div>
-
     <div class="product-area">
       <div class="product-grid" id="product-grid"></div>
     </div>
   </div>
 
-  <!-- ORDER PANEL -->
   <div class="order-panel">
     <div class="order-header">
       <h3>Orden activa</h3>
@@ -284,13 +231,12 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
         </div>
         <div class="cambio-box ok" id="cambio-box" style="display:none"></div>
       </div>
-      <div id="tarjeta-fields" style="display:none" class="tarjeta-info" id="tarjeta-info"></div>
+      <div id="tarjeta-fields" style="display:none" class="tarjeta-info"></div>
       <button class="btn-ticket" id="btn-ticket" onclick="generarTicket()">Generar ticket</button>
     </div>
   </div>
 </div>
 
-<!-- Modal ticket -->
 <div class="modal-bg hidden" id="modal-bg">
   <div class="modal">
     <div class="ticket-header">
@@ -316,6 +262,9 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 <div class="toast" id="toast"></div>
 
 <script>
+// ── GOOGLE SHEETS URL ──
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzFi4Avl16bXSAUD9XdprT3SHuCc5Q0hlBxrbmDl6E1jh4mQB_317UqnC563NAIKxof/exec';
+
 const CATALOGO = {
   "Bebidas Calientes": {
     "Hot Chocolate": {"M": 55, "G": 65},
@@ -342,7 +291,7 @@ const CATALOGO = {
     "Mazapán": {"Ch": 45, "M": 55, "G": 65},
     "Vainilla Francesa": {"Ch": 45, "M": 55, "G": 65},
     "Moka": {"Ch": 45, "M": 55, "G": 65},
-    "Moka Blanco": {"Ch": 45, "M": 55, "G": 65},    
+    "Moka Blanco": {"Ch": 45, "M": 55, "G": 65},
     "Rompope": {"Ch": 45, "M": 55, "G": 65},
     "Horchata": {"Ch": 45, "M": 55, "G": 65},
     "Lotus Biscoff": {"Ch": 45, "M": 55, "G": 65},
@@ -372,7 +321,6 @@ const CATALOGO = {
     "Strawberry Matcha": {"G": 70},
     "Cold Foam": {"Único": 5}
   },
-  
   "Sodas Italianas": {
     "Cereza": {"M": 50, "G": 60},
     "Manzana Verde": {"M": 50, "G": 60},
@@ -411,11 +359,10 @@ const CATALOGO = {
 
 const SIN_LECHE = new Set(["Postres", "Sodas Italianas", "Crepas"]);
 const CON_CREMA = new Set(["Frappés"]);
-
 const MESAS = ["Barra", "Mesa 1", "Mesa 2", "Mesa 3", "Mesa 4", "Mesa 5", "Mesa 6", "Mesa 7", "Mesa 8", "Mesa 9", "Mesa 10"];
+
 let ordenes = {};
 MESAS.forEach(m => ordenes[m] = []);
-
 let mesaActual = "Barra";
 let categoriaActual = Object.keys(CATALOGO)[0];
 let productoActual = null;
@@ -425,18 +372,15 @@ let cfgCrema = "Sí";
 let cfgConsumo = "Aquí";
 let cfgQtyVal = 1;
 let metodoPago = "Efectivo";
-let ventasRegistradas = [];
 
 function fmt(n) { return `$ ${Number(n).toFixed(2)}`; }
 
-// ── MESAS ──
 function renderMesas() {
   const el = document.getElementById('mesa-list');
   el.innerHTML = MESAS.map(m => {
     const tiene = (ordenes[m] || []).length > 0;
-    const dotClass = tiene ? 'ocupada' : 'libre';
     return `<button class="mesa-btn ${m === mesaActual ? 'active' : ''}" onclick="selMesa('${m}')">
-      <span>${m}</span><span class="mesa-dot ${dotClass}"></span>
+      <span>${m}</span><span class="mesa-dot ${tiene ? 'ocupada' : 'libre'}"></span>
     </button>`;
   }).join('');
 }
@@ -445,33 +389,24 @@ function selMesa(m) {
   mesaActual = m;
   document.getElementById('order-mesa-tag').textContent = m;
   document.getElementById('nombre-cliente').value = '';
-  renderMesas();
-  renderOrder();
-  renderTotals();
+  renderMesas(); renderOrder(); renderTotals();
 }
 
-// ── CATEGORÍAS ──
 function renderCats() {
-  const el = document.getElementById('cat-tabs');
-  el.innerHTML = Object.keys(CATALOGO).map(c =>
+  document.getElementById('cat-tabs').innerHTML = Object.keys(CATALOGO).map(c =>
     `<button class="cat-tab ${c === categoriaActual ? 'active' : ''}" onclick="selCat('${c}')">${c}</button>`
   ).join('');
 }
 
 function selCat(c) {
-  categoriaActual = c;
-  productoActual = null;
-  tamanoActual = null;
+  categoriaActual = c; productoActual = null; tamanoActual = null;
   document.getElementById('config-panel').classList.remove('visible');
-  renderCats();
-  renderProducts();
+  renderCats(); renderProducts();
 }
 
-// ── PRODUCTOS ──
 function renderProducts() {
   const prods = CATALOGO[categoriaActual];
-  const el = document.getElementById('product-grid');
-  el.innerHTML = Object.entries(prods).map(([name, sizes]) => {
+  document.getElementById('product-grid').innerHTML = Object.entries(prods).map(([name, sizes]) => {
     const minPrice = Math.min(...Object.values(sizes));
     const sizePills = Object.keys(sizes).map(s =>
       `<span class="size-pill ${(productoActual === name && tamanoActual === s) ? 'sel' : ''}" onclick="selSize('${name}','${s}',event)">${s}</span>`
@@ -486,21 +421,12 @@ function renderProducts() {
 
 function selProducto(name) {
   productoActual = name;
-  const sizes = Object.keys(CATALOGO[categoriaActual][name]);
-  tamanoActual = sizes[0];
-  cfgQtyVal = 1;
-  cfgLeche = "Regular";
-  cfgCrema = "Sí";
-  cfgConsumo = "Aquí";
+  tamanoActual = Object.keys(CATALOGO[categoriaActual][name])[0];
+  cfgQtyVal = 1; cfgLeche = "Regular"; cfgCrema = "Sí"; cfgConsumo = "Aquí";
   document.getElementById('cfg-qty').textContent = '1';
   document.getElementById('cfg-notas').value = '';
-  // Leche
-  const lecheRow = document.getElementById('config-leche-row');
-  lecheRow.style.display = SIN_LECHE.has(categoriaActual) ? 'none' : 'flex';
-  // Crema
-  const cremaRow = document.getElementById('config-crema-row');
-  cremaRow.style.display = CON_CREMA.has(categoriaActual) ? 'flex' : 'none';
-  // Reset radio buttons
+  document.getElementById('config-leche-row').style.display = SIN_LECHE.has(categoriaActual) ? 'none' : 'flex';
+  document.getElementById('config-crema-row').style.display = CON_CREMA.has(categoriaActual) ? 'flex' : 'none';
   document.querySelectorAll('#config-leche-row .radio-opt').forEach((b,i) => b.classList.toggle('sel', i===0));
   document.querySelectorAll('#config-crema-row .radio-opt').forEach((b,i) => b.classList.toggle('sel', i===0));
   document.querySelectorAll('.config-row:nth-child(3) .radio-opt').forEach((b,i) => b.classList.toggle('sel', i===0));
@@ -509,31 +435,12 @@ function selProducto(name) {
 }
 
 function selSize(name, size, e) {
-  e.stopPropagation();
-  productoActual = name;
-  tamanoActual = size;
-  renderProducts();
+  e.stopPropagation(); productoActual = name; tamanoActual = size; renderProducts();
 }
-
-function setLeche(val, btn) {
-  cfgLeche = val;
-  btn.closest('.radio-group').querySelectorAll('.radio-opt').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-}
-function setCrema(val, btn) {
-  cfgCrema = val;
-  btn.closest('.radio-group').querySelectorAll('.radio-opt').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-}
-function setConsumo(val, btn) {
-  cfgConsumo = val;
-  btn.closest('.radio-group').querySelectorAll('.radio-opt').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-}
-function cfgQty(d) {
-  cfgQtyVal = Math.max(1, cfgQtyVal + d);
-  document.getElementById('cfg-qty').textContent = cfgQtyVal;
-}
+function setLeche(val, btn) { cfgLeche = val; btn.closest('.radio-group').querySelectorAll('.radio-opt').forEach(b => b.classList.remove('sel')); btn.classList.add('sel'); }
+function setCrema(val, btn) { cfgCrema = val; btn.closest('.radio-group').querySelectorAll('.radio-opt').forEach(b => b.classList.remove('sel')); btn.classList.add('sel'); }
+function setConsumo(val, btn) { cfgConsumo = val; btn.closest('.radio-group').querySelectorAll('.radio-opt').forEach(b => b.classList.remove('sel')); btn.classList.add('sel'); }
+function cfgQty(d) { cfgQtyVal = Math.max(1, cfgQtyVal + d); document.getElementById('cfg-qty').textContent = cfgQtyVal; }
 
 function agregarAlCarrito() {
   if (!productoActual || !tamanoActual) return;
@@ -542,26 +449,13 @@ function agregarAlCarrito() {
   const leche = SIN_LECHE.has(categoriaActual) ? '' : cfgLeche;
   const crema = CON_CREMA.has(categoriaActual) ? cfgCrema : '';
   const orden = ordenes[mesaActual];
-
-  // buscar duplicado
-  const dup = orden.find(it =>
-    it.producto === productoActual && it.tamano === tamanoActual &&
-    it.leche === leche && it.crema === crema &&
-    it.notas === notas && it.consumo === cfgConsumo
-  );
-  if (dup) {
-    dup.cantidad += cfgQtyVal;
-    dup.subtotal = dup.cantidad * dup.precio;
-  } else {
-    orden.push({ producto: productoActual, tamano: tamanoActual, precio, cantidad: cfgQtyVal, subtotal: cfgQtyVal * precio, leche, crema, notas, consumo: cfgConsumo, categoria: categoriaActual });
-  }
-  renderOrder();
-  renderTotals();
-  renderMesas();
+  const dup = orden.find(it => it.producto === productoActual && it.tamano === tamanoActual && it.leche === leche && it.crema === crema && it.notas === notas && it.consumo === cfgConsumo);
+  if (dup) { dup.cantidad += cfgQtyVal; dup.subtotal = dup.cantidad * dup.precio; }
+  else orden.push({ producto: productoActual, tamano: tamanoActual, precio, cantidad: cfgQtyVal, subtotal: cfgQtyVal * precio, leche, crema, notas, consumo: cfgConsumo, categoria: categoriaActual });
+  renderOrder(); renderTotals(); renderMesas();
   showToast(`${productoActual} agregado`);
 }
 
-// ── ORDER ──
 function renderOrder() {
   const orden = ordenes[mesaActual];
   const el = document.getElementById('order-list');
@@ -594,16 +488,9 @@ function modQty(i, d) {
   else orden[i].subtotal = orden[i].cantidad * orden[i].precio;
   renderOrder(); renderTotals(); renderMesas();
 }
-function delItem(i) {
-  ordenes[mesaActual].splice(i, 1);
-  renderOrder(); renderTotals(); renderMesas();
-}
-function limpiarOrden() {
-  ordenes[mesaActual] = [];
-  renderOrder(); renderTotals(); renderMesas();
-}
+function delItem(i) { ordenes[mesaActual].splice(i, 1); renderOrder(); renderTotals(); renderMesas(); }
+function limpiarOrden() { ordenes[mesaActual] = []; renderOrder(); renderTotals(); renderMesas(); }
 
-// ── TOTALES ──
 function calcTotales() {
   const subtotal = (ordenes[mesaActual] || []).reduce((a, it) => a + it.subtotal, 0);
   let total = subtotal;
@@ -619,7 +506,6 @@ function renderTotals() {
   calcCambio();
 }
 
-// ── PAGO ──
 function setPago(val, btn) {
   metodoPago = val;
   document.querySelectorAll('.pago-btn').forEach(b => b.classList.remove('active'));
@@ -659,7 +545,6 @@ function calcCambio() {
   }
 }
 
-// ── TICKET ──
 let ticketData = null;
 function generarTicket() {
   const orden = ordenes[mesaActual];
@@ -671,14 +556,11 @@ function generarTicket() {
   const monto = parseFloat(document.getElementById('monto-recibido').value) || total;
   const cambio = metodoPago === 'Efectivo' ? Math.round((monto - total) * 100) / 100 : 0;
   const comision = metodoPago === 'Tarjeta' ? Math.round(subtotal * 0.0405 * 100) / 100 : 0;
-
   ticketData = { folio, fecha, nombre, orden: [...orden], subtotal, total, metodoPago, monto, cambio, comision, mesa: mesaActual };
-
   document.getElementById('t-folio').textContent = `Folio #${folio} · ${fecha}`;
   document.getElementById('t-meta').innerHTML = `
     <div class="ticket-row"><span class="label">Mesa</span><span class="val">${mesaActual}</span></div>
     <div class="ticket-row"><span class="label">Cliente</span><span class="val">${nombre}</span></div>`;
-
   document.getElementById('t-items').innerHTML = orden.map(it => {
     const extras = [it.leche && it.leche !== 'Regular' ? `Leche ${it.leche}` : '', it.crema ? `Crema: ${it.crema}` : '', it.consumo, it.notas].filter(Boolean).join(' · ');
     return `<div class="ticket-item">
@@ -687,9 +569,7 @@ function generarTicket() {
       <div class="ticket-item-price"><span>${it.cantidad} × $ ${it.precio}</span><span>$ ${it.subtotal}</span></div>
     </div>`;
   }).join('');
-
-  let totalsHTML = `
-    <div class="ticket-row"><span class="label">Subtotal</span><span class="val">$ ${subtotal.toFixed(2)}</span></div>`;
+  let totalsHTML = `<div class="ticket-row"><span class="label">Subtotal</span><span class="val">$ ${subtotal.toFixed(2)}</span></div>`;
   if (comision > 0) totalsHTML += `<div class="ticket-row"><span class="label">Comisión (4.05%)</span><span class="val">$ ${comision.toFixed(2)}</span></div>`;
   totalsHTML += `<div class="ticket-row ticket-total"><span>Total</span><span class="val">$ ${total.toFixed(2)}</span></div>`;
   totalsHTML += `<div class="ticket-row" style="margin-top:8px"><span class="label">Método</span><span class="val">${metodoPago}</span></div>`;
@@ -701,22 +581,20 @@ function generarTicket() {
   document.getElementById('modal-bg').classList.remove('hidden');
 }
 
-function cerrarModal() {
-  document.getElementById('modal-bg').classList.add('hidden');
-  ticketData = null;
-}
+function cerrarModal() { document.getElementById('modal-bg').classList.add('hidden'); ticketData = null; }
 
-function confirmarCobro() {
+// ── CONFIRMAR COBRO + GOOGLE SHEETS ──
+async function confirmarCobro() {
   if (!ticketData) return;
-  ventasRegistradas.push(...ticketData.orden.map(it => ({
+  const rows = ticketData.orden.map(it => ({
     Fecha: ticketData.fecha,
     Folio: ticketData.folio,
     Mesa: ticketData.mesa,
     Cliente: ticketData.nombre,
     Producto: it.producto,
-    Tamaño: it.tamano,
+    'Tamaño': it.tamano,
     Cantidad: it.cantidad,
-    'Precio Unitario': it.precio,
+    Precio: it.precio,
     Subtotal: it.subtotal,
     Leche: it.leche || '',
     Crema: it.crema || '',
@@ -726,14 +604,27 @@ function confirmarCobro() {
     Total: ticketData.total,
     'Monto Recibido': ticketData.monto,
     Cambio: ticketData.cambio
-  })));
+  }));
   ordenes[mesaActual] = [];
   document.getElementById('nombre-cliente').value = '';
   document.getElementById('monto-recibido').value = '';
   document.getElementById('cambio-box').style.display = 'none';
   cerrarModal();
   renderOrder(); renderTotals(); renderMesas();
-  showToast('Cobro confirmado ✓');
+  showToast('Guardando en Sheets...');
+  try {
+    await fetch(SHEETS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(rows)
+    });
+    showToast('✓ Venta guardada en Google Sheets');
+  } catch (err) {
+    showToast('⚠️ Sin conexión — venta no guardada');
+    console.error(err);
+  }
+  ticketData = null;
 }
 
 function descargarCSV() {
@@ -754,130 +645,77 @@ function descargarCSV() {
   a.click();
 }
 
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2000);
-}
-
-// ── DESCARGAR TICKET COMO IMAGEN ──
 function descargarTicketImagen() {
   if (!ticketData) return;
   const d = ticketData;
-
   const canvas = document.createElement('canvas');
-  const W = 400;
-  const lineH = 20;
-  const pad = 24;
-
-  // Calcular altura dinámica
+  const W = 400, lineH = 20, pad = 24;
   let lines = 18;
   d.orden.forEach(it => {
     lines += 2;
-    const extras = [it.leche && it.leche !== 'Regular' ? 1:0, it.crema?1:0, it.consumo?1:0, it.notas?1:0].reduce((a,b)=>a+b,0);
-    lines += extras;
+    lines += [it.leche && it.leche !== 'Regular', it.crema, it.consumo, it.notas].filter(Boolean).length;
   });
   if (d.metodoPago === 'Tarjeta') lines += 1;
   if (d.metodoPago === 'Efectivo') lines += 2;
-
   canvas.width = W;
   canvas.height = lines * lineH + pad * 4;
   const ctx = canvas.getContext('2d');
-
-  // Fondo blanco
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-
   let y = pad;
-  const x = pad;
-  const right = W - pad;
-
+  const x = pad, right = W - pad;
   function text(str, cx, cy, size=13, weight='normal', color='#1a1714', align='left') {
-    ctx.font = `${weight} ${size}px 'DM Sans', sans-serif`;
-    ctx.fillStyle = color;
-    ctx.textAlign = align;
-    ctx.fillText(str, cx, cy);
+    ctx.font = `${weight} ${size}px sans-serif`; ctx.fillStyle = color; ctx.textAlign = align; ctx.fillText(str, cx, cy);
   }
   function mono(str, cx, cy, size=12, color='#1a1714', align='left') {
-    ctx.font = `${size}px 'DM Mono', monospace`;
-    ctx.fillStyle = color;
-    ctx.textAlign = align;
-    ctx.fillText(str, cx, cy);
+    ctx.font = `${size}px monospace`; ctx.fillStyle = color; ctx.textAlign = align; ctx.fillText(str, cx, cy);
   }
   function line(cy, dash=false) {
-    ctx.beginPath();
-    if (dash) ctx.setLineDash([4,4]); else ctx.setLineDash([]);
-    ctx.strokeStyle = '#d4cfc9';
-    ctx.lineWidth = 1;
-    ctx.moveTo(x, cy); ctx.lineTo(right, cy);
-    ctx.stroke();
-    ctx.setLineDash([]);
+    ctx.beginPath(); if (dash) ctx.setLineDash([4,4]); else ctx.setLineDash([]);
+    ctx.strokeStyle = '#d4cfc9'; ctx.lineWidth = 1;
+    ctx.moveTo(x, cy); ctx.lineTo(right, cy); ctx.stroke(); ctx.setLineDash([]);
   }
-
-  // Encabezado
   text("Bailey's Coffee Shop", W/2, y, 17, '500', '#1a1714', 'center'); y += lineH + 4;
   mono(`Folio #${d.folio}`, W/2, y, 11, '#a09c98', 'center'); y += lineH;
   mono(d.fecha, W/2, y, 11, '#a09c98', 'center'); y += lineH + 4;
   line(y); y += lineH;
-
   text(`Mesa: ${d.mesa}`, x, y, 12, 'normal', '#6b6460'); y += lineH;
   text(`Cliente: ${d.nombre}`, x, y, 12, 'normal', '#6b6460'); y += lineH + 4;
   line(y, true); y += lineH;
-
-  // Items
   d.orden.forEach(it => {
-    text(`${it.producto} (${it.tamano})`, x, y, 13, '500'); 
+    text(`${it.producto} (${it.tamano})`, x, y, 13, '500');
     mono(`$ ${it.subtotal}`, right, y, 13, '#1a1714', 'right'); y += lineH;
     mono(`${it.cantidad} × $ ${it.precio}`, x + 10, y, 11, '#a09c98'); y += lineH - 4;
-    const extras = [
-      it.leche && it.leche !== 'Regular' ? `Leche ${it.leche}` : '',
-      it.crema ? `Crema: ${it.crema}` : '',
-      it.consumo || '',
-      it.notas || ''
-    ].filter(Boolean);
-    extras.forEach(ex => { text(ex, x + 10, y, 11, 'normal', '#a09c98'); y += lineH - 4; });
+    [it.leche && it.leche !== 'Regular' ? `Leche ${it.leche}` : '', it.crema ? `Crema: ${it.crema}` : '', it.consumo||'', it.notas||'']
+      .filter(Boolean).forEach(ex => { text(ex, x + 10, y, 11, 'normal', '#a09c98'); y += lineH - 4; });
     y += 4;
   });
-
   line(y, true); y += lineH;
-
-  // Totales
-  text('Subtotal', x, y, 12, 'normal', '#6b6460');
-  mono(`$ ${d.subtotal.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
-
-  if (d.comision > 0) {
-    text('Comisión (4.05%)', x, y, 12, 'normal', '#6b6460');
-    mono(`$ ${d.comision.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
-  }
-
-  text('Total', x, y, 15, '500');
-  mono(`$ ${d.total.toFixed(2)}`, right, y, 15, '#1a1714', 'right'); y += lineH + 4;
+  text('Subtotal', x, y, 12, 'normal', '#6b6460'); mono(`$ ${d.subtotal.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
+  if (d.comision > 0) { text('Comisión (4.05%)', x, y, 12, 'normal', '#6b6460'); mono(`$ ${d.comision.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH; }
+  text('Total', x, y, 15, '500'); mono(`$ ${d.total.toFixed(2)}`, right, y, 15, '#1a1714', 'right'); y += lineH + 4;
   line(y); y += lineH;
-
   text(`Método: ${d.metodoPago}`, x, y, 12, 'normal', '#6b6460'); y += lineH;
   if (d.metodoPago === 'Efectivo') {
-    text('Recibido', x, y, 12, 'normal', '#6b6460');
-    mono(`$ ${d.monto.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
-    text('Cambio', x, y, 12, 'normal', '#6b6460');
-    mono(`$ ${d.cambio.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
+    text('Recibido', x, y, 12, 'normal', '#6b6460'); mono(`$ ${d.monto.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
+    text('Cambio', x, y, 12, 'normal', '#6b6460'); mono(`$ ${d.cambio.toFixed(2)}`, right, y, 12, '#1a1714', 'right'); y += lineH;
   }
-
   y += lineH;
-  text('Gracias por su visita ☕', W/2, y, 12, 'normal', '#a09c98', 'center');
-
-  // Descargar
+  text('Gracias por su visita', W/2, y, 12, 'normal', '#a09c98', 'center');
   const a = document.createElement('a');
   a.href = canvas.toDataURL('image/png');
   a.download = `ticket_${d.folio}.png`;
   a.click();
 }
 
-// ── INIT ──
-renderMesas();
-renderCats();
-renderProducts();
-renderTotals();
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+renderMesas(); renderCats(); renderProducts(); renderTotals();
 </script>
 </body>
 </html>
